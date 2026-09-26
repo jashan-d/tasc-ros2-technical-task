@@ -9,3 +9,5 @@ This system is important since sensing is an integral part of any rovers navigat
 A real life Example:
 Imagine a rover which uses a LiDAR network to navigate a crowded area. If a pedestrian steps in front of the rover, the sensor publisher node will instantly broadcast the sudden drop between distance of the rover and pedestrian. The subscriber which is like the drive controller will receive this update and cut off power to the motors to prevent a collision. This will act like an emergency brake. By separating the tasks into different nodes, it prevents lag and ensures everything stays fast.  
 
+rqt Graph Explanation:
+The rqt_graph screenshot that is attached shows the data flow across both programs (publisher and subscriber). The oval on the left is the sensor which is sending out the data which is distance numbers. The arrow in the middle is the communication channel between he two programs. The oval on the right is the main controller which is receiving those numbers in real-time. Keeping this two parts separate helps since we can upgrade or swap them out later without needing to rewrite the code.
