@@ -1,0 +1,11 @@
+Hello! This is the explanation for the command and control TASC technical task
+
+DATA TYPE:
+The Data type I selected was building a publisher node that simulates a sensor that's facing forward. For example an ultrasonic sensor or a LiDAR rangefinder. The sensor broadcasts the float distance readings in meters and then alongside that is a status that flags "CLEAR" or "OBSTACLE DETECTED". It constantly updates at 1Hz to mimic how real hardware telemetry works.
+
+Contribution to Robotics System:
+This system is important since sensing is an integral part of any rovers navigation and obstacle detection system. With this information it can then be used to create further software to work on how to avoid such obstacles or to find a clearer path. By putting the sensor in its own publishing node, it abstracts the low level hardware away. The subscriber node acts as the main navigation controller for the rover by simply listening to the data feed. That can be used to make decisions like triggering an emergency brake if the distance drops below a certain value or threshold. 
+
+A real life Example:
+Imagine a rover which uses a LiDAR network to navigate a crowded area. If a pedestrian steps in front of the rover, the sensor publisher node will instantly broadcast the sudden drop between distance of the rover and pedestrian. The subscriber which is like the drive controller will receive this update and cut off power to the motors to prevent a collision. This will act like an emergency brake. By separating the tasks into different nodes, it prevents lag and ensures everything stays fast.  
+
